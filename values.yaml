@@ -1,6 +1,6 @@
 appName: alpine
 
-namespace: 11887-deploymentapp
+namespace: 11877-deploymentapp
 
 replicaCount: 1
 
