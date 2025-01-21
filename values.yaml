@@ -1,0 +1,21 @@
+appName: alpine
+
+namespace: 11887-deploymentapp
+
+replicaCount: 1
+
+image:
+  repository: munialluri/rajalakshmialpine
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+
+configmap:
+  name: alpine-configmap
+  data:
+    CUSTOM_MESSAGE: "Welcome to Alpine App!"
