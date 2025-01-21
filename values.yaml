@@ -5,8 +5,8 @@ namespace: 11877-deploymentapp
 replicaCount: 1
 
 image:
-  repository: munialluri/rajalakshmialpine:v1
-  tag: latest
+  repository: munialluri/rajalakshmialpine
+  tag: v1
   pullPolicy: IfNotPresent
 
 service:

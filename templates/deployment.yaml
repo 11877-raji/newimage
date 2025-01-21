@@ -16,16 +16,11 @@ spec:
         app: {{ .Values.appName }}
     spec:
       containers:
-      - name: alpine-container
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        ports:
-        - containerPort: 8080
-        env:
-        {{- if .Values.configmap }}
-        - name: CUSTOM_MESSAGE
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Values.configmap.name }}
-              key: CUSTOM_MESSAGE
-        {{- end }}
+        - name: {{ .Values.appName }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.configmap.name }}
